@@ -1,9 +1,12 @@
 console.log("This is javascript");
 let filterInput = document.getElementById('filterInput');
 
+console.log(filterInput);
+
 filterInput.addEventListener('keyup', filterNames);
 
 function filterNames() {
+    console.log(1);
     let filterValue = document.getElementById('filterInput').value.toUpperCase();
 
     let ul = document.getElementById('names');
