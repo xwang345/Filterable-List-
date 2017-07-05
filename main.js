@@ -1,9 +1,5 @@
- console.log("This is javascript");
-let filterInput = document.getElementById('filterInput');
 
-//console.log(filterInput);
-
-filterInput.addEventListener('keyup', function filterNames(){
+function filterNames(){
     let filterValue = document.getElementById('filterInput').value.toUpperCase();
     console.log(filterValue);
     let ul = document.getElementById('names');
@@ -21,4 +17,16 @@ filterInput.addEventListener('keyup', function filterNames(){
             li[i].style.display = 'none';
         }
     }
-});
+}
+
+function init() {
+    console.log("This is javascript");
+    let filterInput = document.getElementById('filterInput');
+    filterInput.addEventListener('keyup', filterNames);
+    filterNames();
+
+}
+
+window.onload = function() {
+    init();
+}
