@@ -1,5 +1,5 @@
 
-// console.log("This is main js")
+console.log("This is main js")
 // function filterNames(){
 //     let filterValue = document.getElementById('filterInput').value.toUpperCase();
 //     console.log(filterValue);
