@@ -85,11 +85,11 @@ module.exports.sortContactLastName = (LastNameData) => {
     var sortLastName = [];
     return new Promise((resolve, reject) => {
         for (let i = 0; i < LastNameData.length; i++) {
-            if(LastNameData[i].last_name[0] == "A") {
-                console.log("Push Selected lastName element!!!!!!!");
-                sortLastName.push(LastNameData[i]);
-                console.log(sortLastName[0]);
-            }
+            sortLastName.push(LastNameData[i]);
+            // if(LastNameData[i].last_name[0] == "A") {
+            //     console.log("Push Selected lastName element!!!!!!!");
+            //     console.log(sortLastName[0]);
+            // }
         }
         resolve(sortLastName);
     }).catch((err) => {
