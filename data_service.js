@@ -71,3 +71,13 @@ sequelize.authenticate().then(() => {
 }).catch(function(err) {
     console.log('Unable to connect to the database:', err);
 });
+
+module.exports.getAllContaccts = () => {
+    return new Promise((resolve, reject) => {
+        sequelize.sync().then(() => {
+            resolve(Contact.findAll());
+        }).catch((err) => {
+            reject("no results returned.");
+        });
+    });
+}

@@ -1,42 +1,49 @@
 
+
 <h3 class="align-center">My Contacts</h3>
-    <input type="text" id="filterInput" placeholder="Search name.."></input>
+<input type="text" id="filterInput" placeholder="Search name.."></input>
     <a href="/Contact/add" class = "btn btn-success pull-right" style="margin-top:5px;">Add&nbsp;Contact</a>
         <ul id="names" class="collection with-header">
+            {{#each data}}
+                <li class="collection-item">
+                    {{last_name}}&nbsp;{{firstName}}
+                </li>
+            {{/each}}
+        </ul>
+
+{{!--<li class="collection-header">
+                <h5>A</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">{{contactNum}}</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Alan</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Abe</a>
+            </li>
             <li class="collection-header">
-            <h5>A</h5>
-        </li>
-         <li class="collection-item">
-                <a href="#">Adam</a>
-        </li>
+                <h5>B</h5>
+            </li>
             <li class="collection-item">
-            <a href="#">Alan</a>
-        </li>
+                <a href="#">Bob</a>
+            </li>
             <li class="collection-item">
-            <a href="#">Abe</a>
-        </li>
+                <a href="#">Ben</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Bach</a>
+            </li>
             <li class="collection-header">
-            <h5>B</h5>
-        </li>
-        <li class="collection-item">
-            <a href="#">Bob</a>
-         </li>
+                <h5>C</h5>
+            </li>
             <li class="collection-item">
-            <a href="#">Ben</a>
-        </li>
+                <a href="#">Cindy</a>
+            </li>
             <li class="collection-item">
-            <a href="#">Bach</a>
-         </li>
-            <li class="collection-header">
-            <h5>C</h5>
-        </li>
-        <li class="collection-item">
-            <a href="#">Cindy</a>
-        </li>
+                <a href="#">CC</a>
+            </li>
             <li class="collection-item">
-            <a href="#">CC</a>
-        </li>
-    <li class="collection-item">
-        <a href="#">Clent</a>
-    </li>
-</ul>
+                <a href="#">Clent</a>
+        </li>--}}
