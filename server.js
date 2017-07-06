@@ -1,6 +1,6 @@
 var express = require("express");
 // var main = require("./main.js");
-var data_service = ("./data_service.js");
+var data_service = require("./data_service.js");
 var path = require("path");
 var app = express();
 const exphbs = require('express-handlebars');
@@ -8,9 +8,20 @@ const bodyParser = require('body-parser');
 
 var HTTP_PORT = process.env.PORT || 8080;
 
-app.listen(HTTP_PORT, function onHttpStart(){
-  console.log("Express http server listening on :"+ HTTP_PORT);
-});
+app.listen(HTTP_PORT, onHttpStart);
+
+function onHttpStart() {
+    console.log("Express http server listening on: " + HTTP_PORT);
+    return new Promise((res, req) => {
+        data_service.initialize().then((data) => {
+            console.log(data)
+        }).catch((err) => {
+            console.log(err);
+        });
+    });
+}
+
+app.use(express.static('css'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.engine(".hbs", exphbs({
@@ -30,12 +41,14 @@ app.engine(".hbs", exphbs({
 }));
 app.set("view engine", ".hbs");
 
-app.get("/",(req,res)=>{
+app.get("/", (req,res) => {
     res.render("index");
-    // res.sendFile(path.join(__dirname + "/index.html"));
 });
 
-app.use(express.static('js'));
-// app.use(function(req, res) {
-//   res.status(404).send("Sorry!!!!!!!>>>Page Not Found! <<<:(");
-// });
+app.get("/Contact/add", (req, res) => {
+    res.render("addContact");
+});
+
+app.use(function(req, res) {
+  res.status(404).send("Sorry!!!!!!!>>>Page Not Found! <<<:(");
+});
