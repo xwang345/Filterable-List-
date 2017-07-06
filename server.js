@@ -41,7 +41,7 @@ app.engine(".hbs", exphbs({
 }));
 app.set("view engine", ".hbs");
 
-app.get("/home", (req,res) => {
+app.get("/", (req,res) => {
     data_service.getAllContaccts().then((data) => {
         res.render("index", {data: data});
     }).catch((err) => {
@@ -55,7 +55,7 @@ app.get("/Contact/add", (req, res) => {
 
 app.post("/Contact/add", (req, res) => {
     data_service.addContactF(req.body).then((data) => {
-        res.redirect("/home");
+        res.redirect("/");
     }).catch((err) => {
         console.log(err);
     });
