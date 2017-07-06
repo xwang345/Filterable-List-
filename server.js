@@ -14,7 +14,8 @@ function onHttpStart() {
     console.log("Express http server listening on: " + HTTP_PORT);
     return new Promise((res, req) => {
         data_service.initialize().then((data) => {
-            console.log(data)
+            // res.render(data);
+             console.log(data);
         }).catch((err) => {
             console.log(err);
         });
@@ -43,7 +44,9 @@ app.set("view engine", ".hbs");
 
 app.get("/", (req,res) => {
     data_service.getAllContaccts().then((data) => {
-        res.render("index", {data: data});
+        data_service.sortContactLastName(data).then((LastNameData) => {
+            res.render("index", {data: LastNameData});
+        });
     }).catch((err) => {
         res.render("index", {data: {}});
     });

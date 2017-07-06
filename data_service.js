@@ -41,7 +41,6 @@ module.exports.initialize = () => {
 }
 
 module.exports.addContactF = (contactData) => {
-    console.log("++++++++++contacteData+++++++++++++++++++++++++++"+ contactData);
     return new Promise((resolve, reject) => {
         sequelize.sync().then(() => {
             for (let x in contactData) {
@@ -79,5 +78,21 @@ module.exports.getAllContaccts = () => {
         }).catch((err) => {
             reject("no results returned.");
         });
+    });
+}
+
+module.exports.sortContactLastName = (LastNameData) => {
+    var sortLastName = [];
+    return new Promise((resolve, reject) => {
+        for (let i = 0; i < LastNameData.length; i++) {
+            if(LastNameData[i].last_name[0] == "A") {
+                console.log("Push Selected lastName element!!!!!!!");
+                sortLastName.push(LastNameData[i]);
+                console.log(sortLastName[0]);
+            }
+        }
+        resolve(sortLastName);
+    }).catch((err) => {
+        reject("no results returned!!!")
     });
 }
