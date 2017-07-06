@@ -4,7 +4,12 @@
   "description": "[video](https://www.youtube.com/watch?v=G1eW3Oi6uoc&t=300s)",
   "main": "main.js",
   "dependencies": {
-    "express": "^4.15.3"
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "pg": "^6.4.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.2.1"
   },
   "devDependencies": {},
   "scripts": {
