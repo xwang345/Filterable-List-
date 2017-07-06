@@ -10,8 +10,8 @@ var sequelize = new Sequelize('d3mq5ijq7ie3uh', 'clbnxvbmyelxdj', 'a36a015b026a4
     }
 });
 
-const Contact = sequelize.define('contactTable',{
-    employeeNum:{
+const Contact = sequelize.define('Contact',{
+    contactNum:{
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
@@ -40,6 +40,31 @@ module.exports.initialize = () => {
     });
 }
 
+module.exports.addContactF = (contactData) => {
+    console.log("++++++++++contacteData+++++++++++++++++++++++++++"+ contactData);
+    return new Promise((resolve, reject) => {
+        sequelize.sync().then(() => {
+            for (let x in contactData) {
+                if(contactData[x] == ""){
+                    contactData[x] = null;
+                }
+            }
+            resolve(Contact.create({
+                contactNum: contactData.contactNum,
+                firstName: contactData.firstName,
+                last_name: contactData.last_name,
+                email: contactData.email,
+                SSN: contactData.SSN,
+                addressStreet: contactData.addressStreet,
+                addresCity: contactData.addresCity,
+                isManager: contactData.isManager,
+                addressState: contactData.addressState,
+                addressPostal: contactData.addressPostal}));
+            }).catch(() => {
+                reject("unable to create contact!!!!!!!!!");
+        });
+    });
+}
 
 sequelize.authenticate().then(() => {
     console.log('Connection has been established successfully.');

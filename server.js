@@ -49,6 +49,15 @@ app.get("/Contact/add", (req, res) => {
     res.render("addContact");
 });
 
+app.post("/Contact/add", (req, res) => {
+    data_service.addContactF(req.body).then((data) => {
+      res.send(data);
+        //res.redirect("/index");
+    }).catch((err) => {
+        console.log(err);
+    });
+});
+
 app.use(function(req, res) {
   res.status(404).send("Sorry!!!!!!!>>>Page Not Found! <<<:(");
 });
