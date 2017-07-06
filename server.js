@@ -56,6 +56,14 @@ app.get("/Contact/add", (req, res) => {
     res.render("addContact");
 });
 
+app.get("/Contact/delete/:contactNum", (req, res) => {
+    data_service.deleteContactByNum(req.params.contactNum).then((data) => {
+        res.redirect("/");
+    }).catch((err) => {
+        res.status(500).send("Unable to Remove Employee / Employee not found");
+    });
+});
+
 app.post("/Contact/add", (req, res) => {
     data_service.addContactF(req.body).then((data) => {
         res.redirect("/");

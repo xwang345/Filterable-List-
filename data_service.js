@@ -96,3 +96,17 @@ module.exports.sortContactLastName = (LastNameData) => {
         reject("no results returned!!!")
     });
 }
+
+module.exports.deleteContactByNum = (contactNum) =>{
+    console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
+    return new Promise((resolve, reject) => {
+        sequelize.sync().then(() => {
+            resolve(Contact.destroy({
+                where:{
+                    contactNum: contactNum
+                }}));
+        }).catch((err) => {
+            reject();
+        });
+    });
+}

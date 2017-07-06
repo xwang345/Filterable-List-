@@ -4,13 +4,14 @@
 <input type="text" id="filterInput" placeholder="Search name.."></input>
     <a href="/Contact/add" class = "btn btn-success pull-right" style="margin-top:5px;">Add&nbsp;Contact</a>
         {{!--{{#if last_name "A"}}--}}
-        <ul id="names" class="collection with-header">
-            {{#each data}}
-            <li class="collection-item">
-                <a href="#">{{last_name}}&nbsp;{{firstName}}</a>
-            </li>
-            {{/each}}
-        </ul>
+                <ul id="names" class="collection with-header">
+                {{#each data}}
+                    <li class="collection-item">
+                        <a href="#">{{last_name}}&nbsp;{{firstName}}</a>
+                        <a href="/Contact/delete/{{contactNum}}" class="btn btn-success pull-right">remove</a>
+                    </li>
+                {{/each}}
+                </ul>
         {{!--{{/if}}--}}
 {{!--<li class="collection-header">
                 <h5>A</h5>
