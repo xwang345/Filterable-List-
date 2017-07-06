@@ -9,8 +9,6 @@ app.listen(HTTP_PORT, function onHttpStart(){
   console.log("Express http server listening on :"+ HTTP_PORT);
 });
 
-
-
 app.get("/",(req,res)=>{
     res.sendFile(path.join(__dirname + "/index.html"));
 });
