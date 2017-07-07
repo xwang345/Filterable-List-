@@ -71,6 +71,8 @@ table tr td{
 #boutton_right {
     text-align: center;
     color: whitesmoke;
+    position: absolute;
+    right: 10px;
 }
 
 h5 {
