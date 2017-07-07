@@ -22,7 +22,7 @@ function onHttpStart() {
     });
 }
 
-app.use(express.static('css'));
+app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.engine(".hbs", exphbs({
